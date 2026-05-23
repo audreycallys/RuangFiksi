@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/public/style/output.css" />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+</head>
+<body>
+     <nav class="shadow-[0px_5px_25px_15px_rgba(0,0,0,0.1)] fixed w-full z-50 bg-white">
+
+      <div class="bg-[#AACDDC] px-35 py-2">
+        <ul class="flex gap-10 underline">
+          <li>Home</li>
+          <li>Product</li>
+          <li>About</li>
+        </ul>
+      </div>
+
+      <div class="flex justify-between items-center px-35 py-5">
+        <div class="flex items-center gap-3">
+            <img src="/public/assets/star.png" class="w-10 h-10" alt="">
+            <p class="font-bold text-2xl">Kezza</p>
+        </div>
+        <div class="flex items-center gap-5">
+          <div
+            class="flex items-center border w-80 pr-3 gap-2 bg-white border-gray-500/30 h-[46px] rounded-[5px] overflow-hidden"
+          >
+            <input
+              class="w-full h-full pl-5 outline-none placeholder-gray-500 text-sm"
+              placeholder="Search for products"
+              type="text"
+            />
+            <iconify-icon icon="material-symbols:search-rounded" width="24" height="24" class="text-gray-500"></iconify-icon>
+          </div>
+
+            <a href="/dist/cart.html">
+              <iconify-icon
+                icon="mdi:cart"
+                class="text-gray-500 text-2xl cursor-pointer"
+              ></iconify-icon>
+            </a>
+
+
+          <div class="h-[30px] w-[2px] bg-gray-500/30"></div>
+
+          <div id="auth-section"></div>
+          <!-- <button class="bg-[#81A6C6] px-5 py-1.5 rounded-sm text-white">
+            Sign In
+          </button> -->
+        </div>
+      </div>
+    </nav>
+
+    <script src="/public/script/navbar.js"></script>
+</body>
+</html>

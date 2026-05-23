@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kezza's</title>
+    <link rel="stylesheet" href="/public/style/output.css" />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <script>
+  fetch("/public/components/navbar.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar").innerHTML = data;
+
+      const script = document.createElement("script");
+      script.src = "/public/script/navbar.js";
+      document.body.appendChild(script);
+    });
+</script>
+
+
+</body>
+</html>

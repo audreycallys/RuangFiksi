@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/public/style/output.css" />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center h-screen">
+    <main
+      class="flex items-center justify-center bg-white rounded-xl shadow-lg w-240 h-140"
+    >
+      <!-- Kiri -->
+      <div class="w-1/2 rounded-l-xl bg-gray-200 h-full">
+        <img src="#" alt="" class="" />
+      </div>
+
+      <!-- Kanan -->
+      <div class="flex flex-col items-center justify-center w-1/2">
+        <div class="text-center">
+          <p class="text-3xl font-bold">Create Account</p>
+          <p class="text-gray-400">Join Kezza and start shopping today.</p>
+        </div>
+
+        <div class="gap-2 flex flex-col mt-5">
+          <div>
+            <p class="font-medium">Username</p>
+            <input
+              type="text"
+              name="username"
+              class="block w-90 rounded-sm py-1 px-2 ring-1 ring-inset ring-gray-400 focus:text-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-inset focus:ring-gray-300 mt-1"
+            />
+          </div>
+          <div>
+            <p class="font-medium">Email</p>
+            <input
+              type="email"
+              name="email"
+              class="block w-90 rounded-sm py-1 px-2 ring-1 ring-inset ring-gray-400 focus:text-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-inset focus:ring-gray-300 mt-1"
+            />
+          </div>
+          <div>
+            <p class="font-medium">Password</p>
+            <input
+              type="password"
+              name="password"
+              class="block w-90 rounded-sm py-1 px-2 ring-1 ring-inset ring-gray-400 focus:text-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-inset focus:ring-gray-300 mt-1"
+            />
+          </div>
+        </div>
+
+        <a
+          href="/dist/auth/login.html"
+          class="text-white bg-gray-400 rounded-sm w-90 py-1 mt-8 text-center"
+          >Sign Up</a
+        >
+
+        <div class="flex items-center gap-6 mt-6">
+          <hr class="w-24 text-gray-400" />
+          <p class="text-sm text-gray-400">Or Continue With</p>
+          <hr class="w-24 text-gray-400" />
+        </div>
+
+        <div class="flex items-center gap-7 py-2 mt-2">
+          <iconify-icon
+            icon="ic:baseline-apple"
+            width="28"
+            height="28"
+            class="flex justify-center w-25 h-8 rounded-sm border border-gray-400 text-gray-400"
+          ></iconify-icon>
+          <iconify-icon
+            icon="mdi:google"
+            width="23"
+            height="23"
+            class="flex justify-center w-25 h-8 rounded-sm border border-gray-400 text-gray-400"
+          ></iconify-icon>
+          <iconify-icon
+            icon="ic:baseline-facebook"
+            width="24"
+            height="24"
+            class="flex justify-center w-25 h-8 rounded-sm border border-gray-400 text-gray-400"
+          ></iconify-icon>
+        </div>
+
+        <p class="text-gray-400 text-sm mt-2 text-center">
+          Already have an account?
+          <a class="underline" href="/dist/auth/login.html">Sign In</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
