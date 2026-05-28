@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kezza's</title>
+    <title>Ruang Fiksi</title>
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
 </head>
 <body>
     <div id="navbar"></div>
 
-    <script>
+    <main class="pt-40 px-35">
+      <div>
+        <div id="productList" class="grid grid-cols-5 justify-items-center gap-x-6 gap-y-10"></div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+   <script>
   fetch("/public/components/navbar.html")
     .then((response) => response.text())
     .then((data) => {
@@ -20,8 +28,14 @@
       script.src = "/public/script/navbar.js";
       document.body.appendChild(script);
     });
+
+  fetch("/public/components/footer.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("footer").innerHTML = data;
+    });
 </script>
 
-
+<script src="/public/script/product.js"></script>
 </body>
 </html>
