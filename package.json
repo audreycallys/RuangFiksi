@@ -1,5 +1,5 @@
 {
-  "name": "kezza",
+  "name": "ruangfiksi",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
@@ -8,11 +8,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./public/style/output.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./public/style/input.css -o ./public/style/output.css --watch"
   },
   "dependencies": {
+    "@iconify/tailwind4": "^1.2.3",
     "@tailwindcss/cli": "^4.3.0",
     "tailwindcss": "^4.3.0"
-  },
-  "devDependencies": {}
+  }
 }

@@ -1,27 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="navbar"></div>
 
+    <div id="footer"></div>
+
     <script>
-  fetch("/public/components/navbar.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("navbar").innerHTML = data;
+      fetch("/public/components/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
 
-      const script = document.createElement("script");
-      script.src = "/public/script/navbar.js";
-      document.body.appendChild(script);
-    });
-</script>
+          const script = document.createElement("script");
+          script.src = "/public/script/navbar.js";
+          document.body.appendChild(script);
+        });
 
-
-</body>
+      fetch("/public/components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
 </html>

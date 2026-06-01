@@ -1,40 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="navbar"></div>
 
-    <main>
+    <main class="pt-45 px-35">
+      <div>
+        <p>Keranjang</p>
+        <div>
+          <div>
+            <label class="flex items-center">
+              <input type="checkbox" class="" />
+              Semua
+            </label>
+
+            <button>
+              <iconify-icon icon="ph:trash" width="20"></iconify-icon>Hapus
+            </button>
+          </div>
+        </div>
+      </div>
       <div id="keranjangBuku"></div>
     </main>
 
     <div id="footer"></div>
-    
-     <script src="/public/script/cart.js"></script>
+
+    <script src="/public/script/cart.js"></script>
 
     <script>
-  fetch("/public/components/navbar.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("navbar").innerHTML = data;
+      fetch("/public/components/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
 
-      const script = document.createElement("script");
-      script.src = "/public/script/navbar.js";
-      document.body.appendChild(script);
-    });
+          const script = document.createElement("script");
+          script.src = "/public/script/navbar.js";
+          document.body.appendChild(script);
+        });
 
-  fetch("/public/components/footer.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("footer").innerHTML = data;
-    });
-</script>
-
-</body>
+      fetch("/public/components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
 </html>

@@ -4,81 +4,130 @@ async function ambilBuku() {
   try {
     let response = await fetch("/public/data/books.json");
     books = await response.json();
-    tampilkanBuku();
+    tampilkanBuku(books.slice(0, 12));
+    // tampilkanMostSold();
+    // tampilkanTopRated();
   } catch (error) {
     console.error("Gagal memuat buku", error);
   }
 }
 
-function tampilkanBuku() {
+function tampilkanBuku(data) {
   let container = document.getElementById("productList");
   let html = "";
 
-  books.forEach((book) => {
+  data.forEach((book) => {
     html += `
-    <a href="detail.html?id=${book.id}">
-    <div class="bg-white border border-gray-300 w-55 h-70 rounded-2xl">
-      <div>
-        <div class="relative">
-          <div class="h-40 p-5 flex items-center justify-center">
-            <img
-              src="${book.image}"
-              alt="${book.judul}"
-              class="w-50 h-40 object-contain rounded-t-2xl"
-            />
-          </div>
+  <div class="bg-white border border-gray-300 w-full h-70 rounded-2xl overflow-hidden">
+  <div class="relative h-full">
 
-          <div
-            class="bg-gray-100 w-fit p-1.5 rounded-full flex gap-2 items-center absolute right-3 top-3"
-          >
-            <button class="flex items-center">
-              <iconify-icon
-                icon="mdi:heart"
-                width="24"
-                height="24"
-                class="text-gray-500"
-              ></iconify-icon>
-            </button>
+    <div
+      class="bg-gray-100 w-fit p-1.5 rounded-full flex gap-2 items-center absolute right-3 top-3 z-10"
+    >
+      <button class="flex items-center">
+        <iconify-icon icon="mdi:heart" width="24" height="24" class="text-gray-500"></iconify-icon>
+      </button>
 
-            <button
-              onclick="tambahKeranjang(${book.id})"
-              class="flex items-center"
-            >
+      <button onclick="tambahKeranjang(${book.id})" class="flex items-center">
+        <iconify-icon icon="mdi:cart" width="24" height="24" class="text-gray-500"></iconify-icon>
+      </button>
+    </div>
 
-              <iconify-icon
-                icon="mdi:cart"
-                width="24"
-                height="24"
-                class="text-gray-500"
-              ></iconify-icon>
-            </button>
-          </div>
+    <a href="detail.html?id=${book.id}" class="h-full flex flex-col">
+      <div class="h-40 p-4 flex items-center justify-center">
+        <img
+          src="${book.image}"
+          alt="${book.judul}"
+          class="w-48 h-40 object-contain"
+        />
+      </div>
 
-        </div>
-        <div class="px-3 py-2 h-28 flex flex-col justify-between">
-
-          <div>
-            <p class="font-medium text-l">
-              ${book.judul}
-            </p>
-
-            <p class="text-sm text-sky-700">
-              ${book.penulis}
-            </p>
-          </div>
-
-          <p class="font-semibold text-lg">
-            Rp${book.harga.toLocaleString("id-ID")}
+      <div class="px-3 py-2 flex-1 flex flex-col justify-between">
+        <div>
+          <p class="font-medium text-base leading-5 line-clamp-2">
+            ${book.judul}
           </p>
 
+          <p class="text-sm text-sky-700 mt-1 line-clamp-1">
+            ${book.penulis}
+          </p>
         </div>
+
+        <p class="font-semibold text-lg">
+          Rp${book.harga.toLocaleString("id-ID")}
+        </p>
       </div>
-    </div>
     </a>
+
+  </div>
+</div>
     `;
   });
 
   container.innerHTML = html;
 }
+
+function filterKategori(kategori) {
+  if (kategori === "All") {
+    tampilkanBuku(books.slice(0, 12));
+  } else {
+    let hasil = books.filter((book) => book.kategori === kategori);
+
+    tampilkanBuku(hasil.slice(0, 12));
+  }
+}
+
+function tambahKeranjang(id) {
+  let book = books.find((item) => item.id === id);
+
+  let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+  let cek = cart.find((item) => item.id === id);
+
+  if (cek) {
+    cek.quantity += 1;
+  } else {
+    book.quantity = 1;
+    cart.push(book);
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(cart));
+
+  console.log(cart);
+
+  alert("Buku berhasil masuk ke keranjang!");
+}
+
+// function tampilkanMostSold() {
+//   let container = document.getElementById("mostSoldList");
+//   let html = "";
+
+//   let mostSold = [...books]
+//     .sort((a, b) => b.rating.count - a.rating.count)
+//     .slice(0, 4);
+
+//   mostSold.forEach((book) => {
+//     html += `
+     
+//     `;
+//   });
+
+//   container.innerHTML = html;
+// }
+
+// function tampilkanTopRated() {
+//   let container = document.getElementById("topRatedList");
+//   let html = "";
+
+//   let topRated = [...books]
+//     .sort((a, b) => b.rating.rate - a.rating.rate)
+//     .slice(0, 4);
+
+//   topRated.forEach((book) => {
+//     html += cardBook(book);
+//   });
+
+//   container.innerHTML = html;
+// }
 
 ambilBuku();

@@ -2,22 +2,23 @@
   {
     "email": "nevvaa01@gmail.com",
     "password": "odey",
-    "nama": "Audine"
+    "nama": "Audine",
+    "jenisKelamin": "Perempuan",
+    "tanggalLahir": "01 Juli 2010"
   },
   {
     "email": "arnggi@gmail.com",
     "password": "anggi",
-    "nama": "Anggita"
+    "nama": "Anggita",
+    "jenisKelamin": "Perempuan",
+    "tanggalLahir": "15 Januari 2010"
   },
   {
     "email": "zafiranaufa@gmail.com",
     "password": "japi",
-    "nama": "Zafira"
-  },
-  {
-    "email": "hafizhakmal@gmail.com",
-    "password": "akmal",
-    "nama": "Akmal"
+    "nama": "Zafira",
+    "jenisKelamin": "Perempuan",
+    "tanggalLahir": "15 Mei 2010"
   },
   {
     "email": "sakezza@gmail.com",
