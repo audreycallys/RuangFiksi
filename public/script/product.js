@@ -78,6 +78,12 @@ function filterKategori(kategori) {
 }
 
 function tambahKeranjang(id) {
+  if (!user) {
+    alert("Silakan login terlebih dahulu.");
+    window.location.href = "/dist/auth/login.html";
+    return;
+  }
+
   let book = books.find((item) => item.id === id);
 
   let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
@@ -87,13 +93,18 @@ function tambahKeranjang(id) {
   if (cek) {
     cek.quantity += 1;
   } else {
-    book.quantity = 1;
-    cart.push(book);
+    cart.push({
+      id: book.id,
+      judul: book.judul,
+      penulis: book.penulis,
+      harga: book.harga,
+      image: book.image,
+      quantity: 1,
+      checked: false,
+    });
   }
 
   localStorage.setItem("keranjang", JSON.stringify(cart));
-
-  console.log(cart);
 
   alert("Buku berhasil masuk ke keranjang!");
 }
@@ -108,7 +119,7 @@ function tambahKeranjang(id) {
 
 //   mostSold.forEach((book) => {
 //     html += `
-     
+
 //     `;
 //   });
 

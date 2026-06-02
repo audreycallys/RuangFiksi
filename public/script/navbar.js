@@ -66,3 +66,12 @@ if (user) {
     </a>
   `;
 }
+
+function pindahKeCart() {
+  if (user) {
+    window.location.href = "/dist/cart.html";
+  } else {
+    alert("Silakan login terlebih dahulu untuk melihat keranjang Anda.");
+    window.location.href = "/dist/auth/login.html";
+  }
+}

@@ -1,4 +1,5 @@
 let books = {};
+let semuaBuku = [];
 
 const params = new URLSearchParams(window.location.search);
 const booksId = params.get("id");
@@ -6,6 +7,9 @@ const booksId = params.get("id");
 async function ambilBuku() {
   let response = await fetch("/public/data/books.json");
   let data = await response.json();
+  semuaBuku = data;
+
+  books = data.find((book) => book.id == booksId);
 
   books = data.find((book) => book.id == booksId);
   tampilkanBuku();
@@ -124,11 +128,7 @@ function tampilkanBukuTerkait(data) {
   let container = document.getElementById("bukuTerkait");
 
   let bukuTerkait = data
-    .filter(
-      (book) =>
-        book.kategori === books.kategori &&
-        book.id != books.id
-    )
+    .filter((book) => book.kategori === books.kategori && book.id != books.id)
     .slice(0, 5);
 
   let html = "";
@@ -196,6 +196,25 @@ function tampilkanBukuTerkait(data) {
   });
 
   container.innerHTML = html;
+}
+
+function tambahKeranjang(id) {
+  let book = semuaBuku.find((item) => item.id === id);
+
+  let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+  let cek = cart.find((item) => item.id === id);
+
+  if (cek) {
+    cek.quantity += 1;
+  } else {
+    book.quantity = 1;
+    cart.push(book);
+  }
+
+  localStorage.setItem("keranjang", JSON.stringify(cart));
+
+  alert("Buku berhasil masuk ke keranjang!");
 }
 
 ambilBuku();
