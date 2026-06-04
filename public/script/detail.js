@@ -200,9 +200,7 @@ function tampilkanBukuTerkait(data) {
 
 function tambahKeranjang(id) {
   let book = semuaBuku.find((item) => item.id === id);
-
-  let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
-
+  let cart = JSON.parse(localStorage.getItem(`keranjang_${user}`)) || [];
   let cek = cart.find((item) => item.id === id);
 
   if (cek) {
@@ -212,36 +210,9 @@ function tambahKeranjang(id) {
     cart.push(book);
   }
 
-  localStorage.setItem("keranjang", JSON.stringify(cart));
-
+  localStorage.setItem(`keranjang_${user}`, JSON.stringify(cart));
   alert("Buku berhasil masuk ke keranjang!");
 }
 
 ambilBuku();
 
-// async function ambilBuku() {
-//   try {
-//     let response = await fetch("/public/data/books.json");
-//     let data = await response.json();
-
-//     books = data.find((book) => book.id == booksId);
-
-//     tampilkanBuku();
-//   } catch (error) {
-//     console.error("Gagal memuat buku", error);
-//   }
-// }
-
-// function tampilkanBuku() {
-//   let container = document.getElementById("detailBuku");
-
-//   container.innerHTML = `
-
-//   `;
-// }
-
-// function buyNow() {
-//     alert("Terima kasih sudah membeli buku ini!");
-// }
-
-// ambilBuku();

@@ -4,14 +4,16 @@ async function ambilBuku() {
   try {
     let response = await fetch("/public/data/books.json");
     books = await response.json();
+
     tampilkanBuku(books.slice(0, 12));
-    // tampilkanMostSold();
-    // tampilkanTopRated();
+
+    tampilkanMostSold();
+    tampilkanTopRated();
+
   } catch (error) {
     console.error("Gagal memuat buku", error);
   }
 }
-
 function tampilkanBuku(data) {
   let container = document.getElementById("productList");
   let html = "";
@@ -67,6 +69,36 @@ function tampilkanBuku(data) {
   container.innerHTML = html;
 }
 
+function cardBook(book) {
+  return `
+    <div class="bg-white border border-gray-300 w-full h-80 rounded-2xl overflow-hidden">
+
+      <div class="h-40 p-4 flex items-center justify-center">
+        <img
+          src="${book.image}"
+          alt="${book.judul}"
+          class="w-48 h-40 object-contain"
+        />
+      </div>
+
+      <div class="px-3 py-2">
+        <p class="font-medium text-base line-clamp-2">
+          ${book.judul}
+        </p>
+
+        <p class="text-sm text-sky-700 mt-1">
+          ${book.penulis}
+        </p>
+
+        <p class="font-semibold text-lg mt-4">
+          Rp${book.harga.toLocaleString("id-ID")}
+        </p>
+      </div>
+
+    </div>
+  `;
+}
+
 function filterKategori(kategori) {
   if (kategori === "All") {
     tampilkanBuku(books.slice(0, 12));
@@ -85,9 +117,7 @@ function tambahKeranjang(id) {
   }
 
   let book = books.find((item) => item.id === id);
-
-  let cart = JSON.parse(localStorage.getItem("keranjang")) || [];
-
+  let cart = JSON.parse(localStorage.getItem(`keranjang_${user}`)) || [];
   let cek = cart.find((item) => item.id === id);
 
   if (cek) {
@@ -104,41 +134,41 @@ function tambahKeranjang(id) {
     });
   }
 
-  localStorage.setItem("keranjang", JSON.stringify(cart));
+  localStorage.setItem(`keranjang_${user}`, JSON.stringify(cart));
 
   alert("Buku berhasil masuk ke keranjang!");
 }
 
-// function tampilkanMostSold() {
-//   let container = document.getElementById("mostSoldList");
-//   let html = "";
+function tampilkanMostSold() {
+  let container = document.getElementById("mostSoldList");
 
-//   let mostSold = [...books]
-//     .sort((a, b) => b.rating.count - a.rating.count)
-//     .slice(0, 4);
+  let mostSold = [...books]
+    .sort((a, b) => b.rating.count - a.rating.count)
+    .slice(0, 5);
 
-//   mostSold.forEach((book) => {
-//     html += `
+  let html = "";
 
-//     `;
-//   });
+  mostSold.forEach((book) => {
+    html += cardBook(book);
+  });
 
-//   container.innerHTML = html;
-// }
+  container.innerHTML = html;
+}
 
-// function tampilkanTopRated() {
-//   let container = document.getElementById("topRatedList");
-//   let html = "";
+function tampilkanTopRated() {
+  let container = document.getElementById("topRatedList");
 
-//   let topRated = [...books]
-//     .sort((a, b) => b.rating.rate - a.rating.rate)
-//     .slice(0, 4);
+  let topRated = [...books]
+    .sort((a, b) => b.rating.rate - a.rating.rate)
+    .slice(0, 5);
 
-//   topRated.forEach((book) => {
-//     html += cardBook(book);
-//   });
+  let html = "";
 
-//   container.innerHTML = html;
-// }
+  topRated.forEach((book) => {
+    html += cardBook(book);
+  });
+
+  container.innerHTML = html;
+}
 
 ambilBuku();
