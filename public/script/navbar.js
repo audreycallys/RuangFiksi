@@ -9,8 +9,8 @@ if (user) {
         class="flex items-center gap-2 cursor-pointer"
       >
         <iconify-icon 
-          icon="mdi:account-circle-outline" 
-          class="text-gray-500 text-3xl">
+          icon="iconamoon:profile-fill" 
+          class="text-gray-500 text-2xl">
         </iconify-icon>
 
         <span class="font-medium text-gray-700">
@@ -74,4 +74,18 @@ function pindahKeCart() {
     alert("Silakan login terlebih dahulu untuk melihat keranjang Anda.");
     window.location.href = "/dist/auth/login.html";
   }
+}
+
+const searchBtn = document.getElementById("searchBtn");
+const searchInput = document.getElementById("searchInput");
+
+if (searchBtn) {
+  searchBtn.addEventListener("click", () => {
+    let keyword = searchInput.value.trim();
+
+    if (keyword) {
+      window.location.href =
+        `/dist/catalog.html?search=${encodeURIComponent(keyword)}`;
+    }
+  });
 }

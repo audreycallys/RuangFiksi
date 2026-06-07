@@ -10,7 +10,7 @@
   <body>
     <div id="navbar"></div>
 
-    <main class="pt-45 px-42 mb-5">
+    <main class="pt-45 px-42">
       <div class="flex gap-10 items-start">
         <!-- LEFT -->
         <div class="w-[70%]">
@@ -22,17 +22,17 @@
               Semua
             </label>
 
-            <button class="flex items-center gap-2 text-red-500">
+            <button onclick="hapusSemua()" class="flex items-center gap-2 text-red-500">
               <iconify-icon icon="ph:trash" width="20"></iconify-icon>
               Hapus Semua
             </button>
           </div>
 
-          <div id="cartContainer" class="flex flex-col gap-5"></div>
+          <div id="cartContainer" class="flex flex-col gap-4"></div>
         </div>
 
         <!-- RIGHT -->
-        <div class="w-[45%] sticky top-55">
+        <div class="w-[45%] sticky top-45">
           <div class="border border-gray-300 rounded-2xl p-6">
             <p class="text-2xl font-bold mb-8">Order Summary</p>
 
@@ -63,9 +63,8 @@
         </div>
       </div>
     </main>
-    s
 
-    <div id="footer"></div>
+    <div id="footer" class="mt-20"></div>
 
     <script src="/public/script/cart.js"></script>
 

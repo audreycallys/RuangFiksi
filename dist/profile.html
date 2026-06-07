@@ -7,10 +7,52 @@
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
   </head>
-  <body>
+  <body class="font-[Poppins]">
     <div id="navbar"></div>
 
-    <div id="footer"></div>
+    <main class="pt-45 px-42 min-h-[700px]">
+      <div class="flex gap-24">
+        <!-- SIDEBAR -->
+        <aside class="w-56">
+          <div class="flex flex-col items-center">
+            <img
+              id="sidebarImage"
+              src=""
+              class="w-16 h-16 rounded-full object-cover bg-gray-300"
+            />
+
+            <p id="sidebarNama" class="font-bold mt-4 text-center">Nama User</p>
+
+            <p id="sidebarEmail" class="text-sm text-gray-500 text-center">
+              email@gmail.com
+            </p>
+          </div>
+
+          <div class="border-t border-gray-300 mt-6 pt-5">
+            <a
+              href="/dist/profile.html?page=akun"
+              class="block mb-4 font-semibold"
+            >
+              Akun
+            </a>
+
+            <a
+              href="/dist/profile.html?page=wishlist"
+              class="block font-semibold"
+            >
+              Wishlist
+            </a>
+          </div>
+        </aside>
+
+        <!-- CONTENT -->
+        <section id="profileContent" class="flex-1"></section>
+      </div>
+    </main>
+
+    <div id="footer" class="mt-20"></div>
+
+    <script src="/public/script/profile.js"></script>
 
     <script>
       fetch("/public/components/navbar.html")

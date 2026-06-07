@@ -1,13 +1,23 @@
 let books = [];
+const params = new URLSearchParams(window.location.search);
+const keyword = params.get("search");
 
 async function ambilBuku() {
   try {
     let response = await fetch("/public/data/books.json");
     books = await response.json();
 
-    tampilkanBuku(books);
+    const params = new URLSearchParams(window.location.search);
+    const keyword = params.get("search");
+
+    if (keyword) {
+      cariBuku(keyword);
+    } else {
+      tampilkanBuku(books);
+    }
+
   } catch (error) {
-    console.error("Gagal memuat buku", error);
+    console.error(error);
   }
 }
 
@@ -66,21 +76,48 @@ function tampilkanBuku(data) {
   container.innerHTML = html;
 }
 
+function tambahKeranjang(id) {
+  if (!user) {
+    alert("Silakan login terlebih dahulu.");
+    window.location.href = "/dist/auth/login.html";
+    return;
+  }
+
+  let book = books.find((item) => item.id === id);
+  let cart = JSON.parse(localStorage.getItem(`keranjang_${user}`)) || [];
+  let cek = cart.find((item) => item.id === id);
+
+  if (cek) {
+    cek.quantity += 1;
+  } else {
+    cart.push({
+      id: book.id,
+      judul: book.judul,
+      penulis: book.penulis,
+      harga: book.harga,
+      image: book.image,
+      quantity: 1,
+      checked: false,
+    });
+  }
+
+  localStorage.setItem(`keranjang_${user}`, JSON.stringify(cart));
+
+  alert("Buku berhasil masuk ke keranjang!");
+}
+
 function filterKategori(kategori) {
   let hasil = books.filter((book) => book.kategori === kategori);
-
   tampilkanBuku(hasil);
 }
 
 function filterTopRated() {
   let hasil = [...books].sort((a, b) => b.rating.rate - a.rating.rate);
-
   tampilkanBuku(hasil);
 }
 
 function filterMostSold() {
   let hasil = [...books].sort((a, b) => b.rating.count - a.rating.count);
-
   tampilkanBuku(hasil);
 }
 
@@ -88,6 +125,30 @@ function filterHarga(min, max) {
   let hasil = books.filter((book) => {
     return book.harga >= min && book.harga <= max;
   });
+
+  tampilkanBuku(hasil);
+}
+
+function cariBuku(keyword) {
+  let hasil = books.filter((book) =>
+    book.judul.toLowerCase().includes(keyword.toLowerCase()) ||
+    book.penulis.toLowerCase().includes(keyword.toLowerCase())
+  );
+
+  if (hasil.length === 0) {
+    document.getElementById("productList").innerHTML = `
+      <div class="col-span-4 text-center items-center justify-center py-30">
+        <p class="text-3xl font-bold">
+          Buku tidak ditemukan
+        </p>
+
+        <p class="text-gray-500 mt-2">
+          Tidak ada hasil untuk "${keyword}"
+        </p>
+      </div>
+    `;
+    return;
+  }
 
   tampilkanBuku(hasil);
 }

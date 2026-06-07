@@ -7,28 +7,29 @@
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
   </head>
-  <body class="bg-white">
+  <body class="bg-white font-[Poppins]">
     <div id="navbar"></div>
 
     <main class="pt-45 px-42">
       <section id="detailBuku"></section>
     </main>
 
-    <section class="bg-gray-100 px-42 py-5">
-      <h2 class="text-3xl font-semibold mb-8">Produk Terkait</h2>
+    <main class="mt-5 px-42">
+      <div class="flex justify-between p-5 items-center">
+        <p class="text-3xl font-bold">Produk Terkait</p>
+      </div>
 
-      <div id="bukuTerkait" class="grid grid-cols-5 gap-8"></div>
-    </section>
+      <div
+        class="bg-gray-100 w-full h-90 rounded-2xl flex shadow-[0px_0px_5px_rgba(0,0,0,0.1)]"
+      >
+        <div
+          id="bukuTerkait"
+          class="grid grid-cols-6 justify-center items-center gap-8 px-8"
+        ></div>
+      </div>
+    </main>
 
-    <section class="bg-gray-100 px-42 py-10 mt-20">
-      <h2 class="text-3xl font-semibold mb-8">
-        Produk Yang Mungkin Anda Sukai
-      </h2>
-
-      <div id="bukuRandom" class="grid grid-cols-5 gap-8"></div>
-    </section>
-
-    <div id="footer"></div>
+    <div id="footer" class="mt-20"></div>
 
     <script src="/public/script/detail.js"></script>
 

@@ -10,7 +10,7 @@ function tampilkanCart() {
 
   cart.forEach((item) => {
    html += `
-  <div class="bg-white border border-gray-300 rounded-2xl px-4 py-3 flex items-center justify-between mb-4 shadow-sm">
+  <div class="bg-white border border-gray-300 rounded-2xl px-4 py-3 flex items-center justify-between mb-3 shadow-sm">
 
     <div class="flex items-center gap-4">
       <input
@@ -48,13 +48,13 @@ function tampilkanCart() {
         ></iconify-icon>
       </button>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1">
       <button
         onclick="kurangQty(${item.id})"
-        class="bg-gray-300 w-5 h-5 rounded-sm items-center flex text-center text-sm justify-center"
+        class="bg-gray-300 w-5 h-5 rounded-sm items-center flex text-center text-sm justify-center cursor-pointer"
       >-</button>
 
-      <p class="text-sm text-center">
+      <p class="text-sm text-center w-5">
         ${item.quantity}
       </p>
 
@@ -77,6 +77,13 @@ function hapus(id) {
 
   localStorage.setItem(`keranjang_${sessionUser}`, JSON.stringify(cart));
   tampilkanCart();
+}
+
+function hapusSemua() {
+  if (confirm("Apakah Anda yakin ingin menghapus semua item di keranjang?")) {
+    localStorage.removeItem(`keranjang_${sessionUser}`);
+    tampilkanCart();
+  }
 }
 
 function ceklis(id) {

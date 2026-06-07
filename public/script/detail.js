@@ -124,63 +124,39 @@ function tampilkanBuku() {
   `;
 }
 
-function tampilkanBukuTerkait(data) {
-  let container = document.getElementById("bukuTerkait");
+function cardBook(book) {
+  return `
+   <div class="bg-white w-full h-70 rounded-2xl overflow-hidden border border-gray-300 hover:shadow-[0px_0px_30px_0px_rgba(0,0,0,0.1)] transition-shadow duration-200">
+  <div class="relative h-full">
 
-  let bukuTerkait = data
-    .filter((book) => book.kategori === books.kategori && book.id != books.id)
-    .slice(0, 5);
-
-  let html = "";
-
-  bukuTerkait.forEach((book) => {
-    html += `
-      <div class="bg-white border border-gray-300 w-55 h-70 rounded-2xl flex items-center justify-center">
-
-  <div class="relative">
-    
     <div
       class="bg-gray-100 w-fit p-1.5 rounded-full flex gap-2 items-center absolute right-3 top-3 z-10"
     >
       <button class="flex items-center">
-        <iconify-icon
-          icon="mdi:heart"
-          width="24"
-          height="24"
-          class="text-gray-500"
-        ></iconify-icon>
+        <iconify-icon icon="mdi:heart" width="24" height="24" class="cursor-pointer text-gray-500 hover:text-pink-700 transition"></iconify-icon>
       </button>
 
-      <button
-        onclick="tambahKeranjang(${book.id})"
-        class="flex items-center"
-      >
-        <iconify-icon
-          icon="mdi:cart"
-          width="24"
-          height="24"
-          class="text-gray-500"
-        ></iconify-icon>
+      <button onclick="tambahKeranjang(${book.id})" class="flex items-center">
+        <iconify-icon icon="mdi:cart" width="24" height="24" class="cursor-pointer text-gray-500 hover:text-sky-950 transition"></iconify-icon>
       </button>
     </div>
 
-    <a href="detail.html?id=${book.id}">
-      
-      <div class="h-40 p-5 flex items-center justify-center">
+    <a href="detail.html?id=${book.id}" class="h-full flex flex-col">
+      <div class="h-40 p-4 flex items-center justify-center">
         <img
           src="${book.image}"
           alt="${book.judul}"
-          class="w-50 h-40 object-contain rounded-t-2xl"
+          class="w-48 h-40 object-contain"
         />
       </div>
 
-      <div class="px-3 py-2 h-28 flex flex-col justify-between">
+      <div class="px-3 py-2 flex-1 flex flex-col justify-between">
         <div>
-          <p class="font-medium text-l">
+          <p class="font-medium text-base leading-5 line-clamp-2">
             ${book.judul}
           </p>
 
-          <p class="text-sm text-sky-700">
+          <p class="text-sm text-sky-700 mt-1 line-clamp-1">
             ${book.penulis}
           </p>
         </div>
@@ -190,9 +166,23 @@ function tampilkanBukuTerkait(data) {
         </p>
       </div>
     </a>
+
   </div>
 </div>
-    `;
+  `;
+}
+
+function tampilkanBukuTerkait(data) {
+  let container = document.getElementById("bukuTerkait");
+
+  let bukuTerkait = data
+    .filter((book) => book.kategori === books.kategori && book.id != books.id)
+    .slice(0, 6);
+
+  let html = "";
+
+  bukuTerkait.forEach((book) => {
+    html += cardBook(book);
   });
 
   container.innerHTML = html;
@@ -215,4 +205,3 @@ function tambahKeranjang(id) {
 }
 
 ambilBuku();
-
