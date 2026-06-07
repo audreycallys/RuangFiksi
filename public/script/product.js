@@ -1,3 +1,4 @@
+const currentUser = sessionStorage.getItem("name");
 let books = [];
 
 async function ambilBuku() {
@@ -15,6 +16,10 @@ async function ambilBuku() {
 }
 
 function cardBook(book) {
+  let wishlist =
+    JSON.parse(localStorage.getItem(`wishlist_${currentUser}`)) || [];
+  let sudahWishlist = wishlist.some((item) => item.id === book.id);
+
   return `
    <div class="bg-white w-full h-70 rounded-2xl overflow-hidden border border-gray-300 hover:shadow-[0px_0px_30px_0px_rgba(0,0,0,0.1)] transition-shadow duration-200">
   <div class="relative h-full">
@@ -22,8 +27,8 @@ function cardBook(book) {
     <div
       class="bg-gray-100 w-fit p-1.5 rounded-full flex gap-2 items-center absolute right-3 top-3 z-10"
     >
-      <button class="flex items-center">
-        <iconify-icon icon="mdi:heart" width="24" height="24" class="cursor-pointer text-gray-500 hover:text-pink-700 transition"></iconify-icon>
+      <button onclick="toggleWishlist(${book.id})" class="flex items-center">
+        <iconify-icon icon="mdi:heart" width="24" height="24" class="cursor-pointer ${sudahWishlist ? "text-pink-700" : "text-gray-500"} hover:text-pink-700 transition""></iconify-icon>
       </button>
 
       <button onclick="tambahKeranjang(${book.id})" class="flex items-center">
@@ -84,14 +89,14 @@ function filterKategori(kategori) {
 }
 
 function tambahKeranjang(id) {
-  if (!user) {
+  if (!currentUser) {
     alert("Silakan login terlebih dahulu.");
     window.location.href = "/dist/auth/login.html";
     return;
   }
 
   let book = books.find((item) => item.id === id);
-  let cart = JSON.parse(localStorage.getItem(`keranjang_${user}`)) || [];
+  let cart = JSON.parse(localStorage.getItem(`keranjang_${currentUser}`)) || [];
   let cek = cart.find((item) => item.id === id);
 
   if (cek) {
@@ -108,9 +113,48 @@ function tambahKeranjang(id) {
     });
   }
 
-  localStorage.setItem(`keranjang_${user}`, JSON.stringify(cart));
+  localStorage.setItem(`keranjang_${currentUser}`, JSON.stringify(cart));
 
   alert("Buku berhasil masuk ke keranjang!");
+}
+
+function toggleWishlist(id) {
+  if (!currentUser) {
+    alert("Silakan login terlebih dahulu.");
+    window.location.href = "/dist/auth/login.html";
+    return;
+  }
+
+  let book = books.find((item) => item.id === id);
+
+  let wishlist =
+    JSON.parse(localStorage.getItem(`wishlist_${currentUser}`)) || [];
+
+  let cek = wishlist.find((item) => item.id === id);
+
+  if (cek) {
+    wishlist = wishlist.filter((item) => item.id !== id);
+    alert("Buku dihapus dari wishlist!");
+  } else {
+    wishlist.push({
+      id: book.id,
+      judul: book.judul,
+      penulis: book.penulis,
+      harga: book.harga,
+      image: book.image,
+    });
+
+    alert("Buku berhasil masuk ke wishlist!");
+  }
+
+  localStorage.setItem(
+    `wishlist_${currentUser}`,
+    JSON.stringify(wishlist)
+  );
+
+  tampilkanBuku(books.slice(0, 12));
+  tampilkanMostSold();
+  tampilkanTopRated();
 }
 
 function tampilkanMostSold() {
