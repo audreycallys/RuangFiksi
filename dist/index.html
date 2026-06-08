@@ -1,71 +1,92 @@
 <!doctype html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ruang Fiksi</title>
+    <title>RuangFiksi</title>
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
   </head>
-  <body class="font-[Poppins]">
+
+  <body class="font-[Poppins] bg-[#FCFAF7]">
     <div id="navbar"></div>
 
-    <main class="pt-35 px-42">
-      <div class="flex py-15 justify-between items-start">
-        <!-- KIRI -->
-        <div class="flex flex-col w-[43%]">
-          <h1 class="text-7xl leading-tight">
+    <!-- Hero -->
+    <main id="main" class="pt-45 mb-8 px-6 md:px-16 lg:px-42">
+      <div
+        class="rounded-4xl overflow-hidden bg-cover bg-center flex items-center shadow-[0px_0px_30px_0px_rgba(0,0,0,0.08)] min-h-[360px] md:min-h-[480px] lg:h-[600px]"
+        style="background-image: url(&quot;/public/assets/image/hero.png&quot;)"
+      >
+        <div
+          class="w-[55%] md:w-[45%] lg:w-[45%] ml-5 md:ml-8 lg:ml-16 py-6 lg:py-0"
+        >
+          <h1
+            class="text-3xl md:text-4xl lg:text-7xl leading-tight text-[#3D342B]"
+          >
             Temukan Cerita
             <span class="font-bold">Favoritmu</span>
             di Ruang Fiksi
           </h1>
 
-          <p class="text-gray-500 mt-4 leading-7">
-            Jelajahi koleksi buku romansa, drama, fantasi, sejarah, sastra, dan
-            misteri.
+          <p class="text-[#6B5B4D] mt-3 leading-7 text-sm md:text-base">
+            Jelajahi koleksi buku sesuai keinginanmu!
           </p>
 
           <a
             href="/dist/catalog.html"
-            class="bg-sky-950 px-7 py-2 rounded-full text-white w-fit mt-4"
+            class="bg-[#6B5B4D] hover:bg-[#5A4B3E] px-7 py-3 rounded-full text-white w-fit mt-5 inline-block transition"
           >
             Explore Books
           </a>
 
-          <div class="flex items-center gap-5 mt-10">
+          <div class="hidden lg:flex items-center gap-5 mt-10">
             <div class="flex">
-              <div class="bg-gray-200 rounded-full w-12 h-12"></div>
-              <div class="bg-gray-300 rounded-full w-12 h-12 -ml-3"></div>
-              <div class="bg-gray-400 rounded-full w-12 h-12 -ml-3"></div>
+              <div class="bg-[#E8E0D7] rounded-full w-12 h-12">
+                <img
+                  src="/public/assets/profile/cat2.jpg"
+                  class="rounded-full object-cover"
+                  alt=""
+                />
+              </div>
+              <div class="bg-[#D9D1C7] rounded-full w-12 h-12 -ml-3">
+                <img
+                  src="/public/assets/profile/cat3.jpg"
+                  class="rounded-full object-cover"
+                  alt=""
+                />
+              </div>
+              <div class="bg-[#C8A97E] rounded-full w-12 h-12 -ml-3">
+                <img
+                  src="/public/assets/profile/cat1.jpg"
+                  class="rounded-full object-cover"
+                  alt=""
+                />
+              </div>
             </div>
 
             <div>
-              <p class="font-bold">15k++</p>
-              <p class="text-sm">Positive Reviews</p>
+              <p class="font-bold text-[#3D342B]">15k++</p>
+              <p class="text-sm text-[#6B5B4D]">Positive Reviews</p>
             </div>
 
-            <div class="w-px h-14 bg-gray-400"></div>
+            <div class="w-px h-14 bg-[#D9D1C7]"></div>
 
-            <p class="text-gray-400 text-sm w-60">
+            <p class="text-[#8C7A69] text-sm w-60">
               Dipercaya pembaca untuk menemukan buku favorit.
             </p>
           </div>
         </div>
-
-        <!-- KANAN -->
-        <div class="w-[48%] h-125 bg-gray-100 rounded-4xl overflow-hidden">
-          <img src="" alt="Hero Books" class="w-full h-full object-cover" />
-        </div>
       </div>
     </main>
 
-    <main class="px-42 mt-4">
+    <!-- Feature Bar -->
+    <main class="px-6 md:px-16 lg:px-42 mt-4">
       <div
-        class="w-full h-30 bg-white rounded-2xl flex items-center justify-evenly shadow-[0px_0px_30px_0px_rgba(0,0,0,0.1)]"
+        class="w-full bg-white rounded-2xl shadow-[0px_0px_30px_0px_rgba(0,0,0,0.08)] py-6 lg:h-30 flex flex-col lg:flex-row items-center justify-evenly gap-5 lg:gap-0"
       >
-        <div class="flex gap-3 items-center">
+        <div class="flex gap-3 items-center w-full lg:w-auto px-4 lg:px-0">
           <div
-            class="rounded-full bg-sky-950 w-18 h-18 flex items-center justify-center text-white"
+            class="rounded-full bg-[#6B5B4D] w-18 h-18 flex items-center justify-center text-white shrink-0"
           >
             <iconify-icon
               icon="mdi:book-open-page-variant"
@@ -73,15 +94,18 @@
             ></iconify-icon>
           </div>
           <div class="w-80">
-            <p class="font-bold text-xl text-sky-950">Buku Populer</p>
-            <p class="text-gray-600 text-sm">
+            <p class="font-bold text-xl text-[#3D342B]">Buku Populer</p>
+            <p class="text-[#6B5B4D] text-sm">
               Koleksi best seller favorit pembaca
             </p>
           </div>
         </div>
-        <div class="flex gap-3 items-center">
+
+        <div class="hidden lg:block w-px h-14 bg-[#D9D1C7]"></div>
+
+        <div class="flex gap-3 items-center w-full lg:w-auto px-4 lg:px-0">
           <div
-            class="rounded-full bg-sky-950 w-18 h-18 flex items-center justify-center text-white"
+            class="rounded-full bg-[#6B5B4D] w-18 h-18 flex items-center justify-center text-white shrink-0"
           >
             <iconify-icon
               icon="mdi:calendar-month"
@@ -89,21 +113,24 @@
             ></iconify-icon>
           </div>
           <div class="w-80">
-            <p class="font-bold text-xl text-sky-950">Update Mingguan</p>
-            <p class="text-gray-600 text-sm">
+            <p class="font-bold text-xl text-[#3D342B]">Update Mingguan</p>
+            <p class="text-[#6B5B4D] text-sm">
               Rekomendasi buku terbaru setiap minggu
             </p>
           </div>
         </div>
-        <div class="flex gap-3 items-center">
+
+        <div class="hidden lg:block w-px h-14 bg-[#D9D1C7]"></div>
+
+        <div class="flex gap-3 items-center w-full lg:w-auto px-4 lg:px-0">
           <div
-            class="rounded-full bg-sky-950 w-18 h-18 flex items-center justify-center text-white"
+            class="rounded-full bg-[#6B5B4D] w-18 h-18 flex items-center justify-center text-white shrink-0"
           >
             <iconify-icon icon="mdi:bookshelf" class="text-4xl"></iconify-icon>
           </div>
           <div class="w-80">
-            <p class="font-bold text-xl text-sky-950">Kategori Lengkap</p>
-            <p class="text-gray-600 text-sm">
+            <p class="font-bold text-xl text-[#3D342B]">Kategori Lengkap</p>
+            <p class="text-[#6B5B4D] text-sm">
               Temukan buku sesuai genre favoritmu
             </p>
           </div>
@@ -111,66 +138,58 @@
       </div>
     </main>
 
-    <main class="mt-20 px-42">
-      <div class="bg-gray-100 w-full h-100 rounded-2xl">
-        <img src="" alt="Hero Books" class="w-full h-full rounded-2xl" />
-      </div>
-    </main>
-
-    <main class="mt-20 px-42">
-      <div class="flex items-center justify-between mb-10">
-        <div class="">
-          <p class="text-5xl font-bold">Category</p>
-          <p class="text-gray-500 mt-5 text-xl">
-            Temukan berbagai genre buku populer favoritmu
+    <!-- Category -->
+    <main id="category" class="mt-20 px-6 md:px-16 lg:px-42 scroll-mt-45">
+      <div
+        class="flex flex-col lg:flex-row lg:items-center justify-between mb-10 gap-5"
+      >
+        <div>
+          <p class="text-5xl font-bold text-[#3D342B]">Category</p>
+          <p class="text-[#8C7A69] mt-5 text-xl">
+            Temukan berbagai genre buku favoritmu
           </p>
         </div>
 
-        <div class="flex gap-3 items-center">
+        <div class="flex flex-wrap gap-2 lg:gap-3 items-center">
           <button
             onclick="filterKategori('All')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             All
           </button>
           <button
             onclick="filterKategori('Romansa')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             Romansa
           </button>
-
           <button
             onclick="filterKategori('Drama')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             Drama
           </button>
-
           <button
             onclick="filterKategori('Fantasi')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             Fantasi
           </button>
-
           <button
             onclick="filterKategori('Sejarah')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             Sejarah
           </button>
-
           <button
             onclick="filterKategori('Sastra')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             Sastra
           </button>
-
           <button
             onclick="filterKategori('Misteri')"
-            class="border border-gray-300 px-8 py-1.5 text-sm rounded-2xl hover:bg-sky-950 hover:text-white transition"
+            class="border border-[#D9D1C7] px-8 py-1.5 text-sm rounded-2xl text-[#6B5B4D] hover:bg-[#6B5B4D] hover:text-white transition cursor-pointer"
           >
             Misteri
           </button>
@@ -178,112 +197,113 @@
       </div>
 
       <div class="mt-15">
-        <div id="productList" class="grid grid-cols-6 gap-10"></div>
+        <div
+          id="productList"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-10"
+        ></div>
       </div>
     </main>
 
-    <main class="mt-20 px-42">
-      <div class="flex justify-between p-5 items-center">
-        <p class="text-3xl font-bold">Top Rated</p>
-        <button class="text-sm underline">View All</button>
+    <!-- Top Rated -->
+    <main class="mt-20 px-6 md:px-16 lg:px-42">
+      <div class="flex p-5 items-center">
+        <p class="text-3xl font-bold text-[#3D342B]">Top Rated</p>
       </div>
-
-      <div class="bg-gray-100 w-full h-100 rounded-2xl flex shadow-[0px_0px_5px_rgba(0,0,0,0.1)]">
-        <div class="bg-gray-200 h-full w-80 rounded-2xl overflow-hidden">
-          <img src="" alt="" class="w-full h-full object-cover">
+      <div
+        class="bg-[#FAF7F2] border border-[#E8E0D7] w-full rounded-2xl flex flex-col lg:flex-row shadow-[0px_0px_30px_0px_rgba(0,0,0,0.08)] overflow-hidden"
+      >
+        <div class="bg-gray-200 h-48 lg:h-100 lg:w-70 shrink-0">
+          <img
+            src="/public/assets/image/top rate.png"
+            alt=""
+            class="w-full h-full object-cover object-center"
+          />
         </div>
         <div
           id="topRatedList"
-          class="grid grid-cols-5 justify-center items-center gap-8 px-8"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 justify-center items-center gap-4 lg:gap-8 p-4 lg:px-8 lg:py-0"
         ></div>
       </div>
     </main>
 
-    <main class="mt-20 px-42">
-      <div class="flex justify-between p-5 items-center">
-        <p class="text-3xl font-bold">Most Sold</p>
-        <button class="text-sm underline">View All</button>
+    <!-- Most Sold -->
+    <main class="mt-20 px-6 md:px-16 lg:px-42">
+      <div class="flex p-5 items-center">
+        <p class="text-3xl font-bold text-[#3D342B]">Most Sold</p>
       </div>
-
-      <div class="bg-gray-100 w-full h-100 rounded-2xl flex shadow-[0px_0px_5px_rgba(0,0,0,0.1)]">
-        <div class="bg-gray-200 h-full w-80 rounded-2xl overflow-hidden">
-          <img src="" alt="" class="w-full h-full object-cover">
+      <div
+        class="bg-[#FAF7F2] border border-[#E8E0D7] w-full rounded-2xl flex flex-col lg:flex-row shadow-[0px_0px_30px_0px_rgba(0,0,0,0.08)] overflow-hidden"
+      >
+        <div class="bg-gray-200 h-48 lg:h-100 lg:w-70 shrink-0">
+          <img
+            src="/public/assets/image/most sold.png"
+            alt=""
+            class="w-full h-full object-cover object-center"
+          />
         </div>
         <div
           id="mostSoldList"
-          class="grid grid-cols-5 justify-center items-center gap-8 px-8"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 justify-center items-center gap-4 lg:gap-8 p-4 lg:px-8 lg:py-0"
         ></div>
       </div>
     </main>
 
-    <main class="mt-20 px-42">
-      <section class="w-full bg-white shadow-[0px_0px_30px_0px_rgba(0,0,0,0.1)] rounded-2xl px-12 py-12">
-        <h2 class="text-center text-3xl font-bold text-sky-950">
+    <!-- Testimonial -->
+    <main id="testimonial" class="mt-20 px-6 md:px-16 lg:px-42 scroll-mt-45">
+      <section
+        class="w-full bg-white shadow-[0px_0px_30px_0px_rgba(0,0,0,0.08)] rounded-2xl px-6 md:px-12 py-12"
+      >
+        <h2 class="text-center text-3xl font-bold text-[#3D342B]">
           Customer Testimonials
         </h2>
+        <div class="w-20 h-0.5 bg-[#6B5B4D] mx-auto mt-4 rounded-full"></div>
 
-        <div class="w-20 h-0.5 bg-sky-950 mx-auto mt-4 rounded-full"></div>
-
-        <div class="grid grid-cols-4 gap-10 mt-10">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mt-10"
+        >
           <div class="text-center">
-            <p class="text-gray-500 italic leading-7">
-              “Bukunya sampai dengan aman dan packing-nya rapi.”
+            <p class="text-[#6B5B4D] italic leading-7">
+              "Bukunya sampai dengan aman dan packing-nya rapi."
             </p>
-
-            <div class="text-yellow-400 text-xl mt-4">★★★★★</div>
-
-            <h3 class="font-bold text-sky-950 mt-3">Audrey Neva</h3>
-
-            <p class="text-gray-500">DKI Jakarta</p>
+            <div class="text-amber-300 text-xl mt-4">★★★★★</div>
+            <h3 class="font-bold text-[#3D342B] mt-3">Audrey Callysta</h3>
+            <p class="text-[#8C7A69]">Bekasi</p>
           </div>
-
           <div class="text-center">
-            <p class="text-gray-500 italic leading-7">
-              “Koleksi bukunya lengkap, mudah dicari, dan tampilannya nyaman.”
+            <p class="text-[#6B5B4D] italic leading-7">
+              "Koleksi bukunya lengkap, mudah dicari, dan tampilannya nyaman."
             </p>
-
-            <div class="text-yellow-400 text-xl mt-4">★★★★★</div>
-
-            <h3 class="font-bold text-sky-950 mt-3">Els Ye</h3>
-
-            <p class="text-gray-500">Jawa Barat</p>
+            <div class="text-amber-300 text-xl mt-4">★★★★★</div>
+            <h3 class="font-bold text-[#3D342B] mt-3">Anggita Ayu</h3>
+            <p class="text-[#8C7A69]">Jawa Barat</p>
           </div>
-
           <div class="text-center">
-            <p class="text-gray-500 italic leading-7">
-              “Suka banget belanja di Ruang Fiksi, banyak buku favorit saya.”
+            <p class="text-[#6B5B4D] italic leading-7">
+              "Suka banget belanja di Ruang Fiksi, banyak buku favorit saya."
             </p>
-
-            <div class="text-yellow-400 text-xl mt-4">★★★★★</div>
-
-            <h3 class="font-bold text-sky-950 mt-3">Hirnilia</h3>
-
-            <p class="text-gray-500">DKI Jakarta</p>
+            <div class="text-amber-300 text-xl mt-4">★★★★★</div>
+            <h3 class="font-bold text-[#3D342B] mt-3">Juhair Zumal</h3>
+            <p class="text-[#8C7A69]">DKI Jakarta</p>
           </div>
-
           <div class="text-center">
-            <p class="text-gray-500 italic leading-7">
-              “Rekomendasi bukunya bagus dan cocok untuk pencinta novel fiksi.”
+            <p class="text-[#6B5B4D] italic leading-7">
+              "Rekomendasi bukunya bagus dan cocok untuk pencinta novel fiksi."
             </p>
-
-            <div class="text-yellow-400 text-xl mt-4">★★★★★</div>
-
-            <h3 class="font-bold text-sky-950 mt-3">Carolina Budi</h3>
-
-            <p class="text-gray-500">Jawa Tengah</p>
+            <div class="text-amber-300 text-xl mt-4">★★★★★</div>
+            <h3 class="font-bold text-[#3D342B] mt-3">Aiko Aufa</h3>
+            <p class="text-[#8C7A69]">Jawa Tengah</p>
           </div>
         </div>
       </section>
     </main>
 
-   <div id="footer" class="mt-20"></div>
+    <div id="footer" class="mt-20"></div>
 
     <script>
       fetch("/public/components/navbar.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
-
           const script = document.createElement("script");
           script.src = "/public/script/navbar.js";
           document.body.appendChild(script);

@@ -3,36 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catalog</title>
+    <title>RuangFiksi - Catalog</title>
     <link rel="stylesheet" href="/public/style/output.css" />
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
   </head>
-  <body class="font-[Poppins]">
+
+  <body class="font-[Poppins] min-h-screen flex flex-col bg-[#FCFAF7]">
     <div id="navbar"></div>
 
-    <main class="pt-45 mb-15 px-42">
-      <div class="flex gap-15">
+    <main class="pt-45 mb-15 px-6 md:px-16 lg:px-42 flex-1">
+      <div class="flex flex-col lg:flex-row gap-8">
         <!-- SIDEBAR -->
-        <aside class="w-55">
+        <aside
+          class="w-full lg:w-60 bg-white border border-[#E8E0D7] rounded-2xl p-6 h-fit shadow-[0px_0px_20px_rgba(0,0,0,0.04)]"
+        >
           <div
-            class="flex items-center justify-between border-b border-gray-300 pb-3"
+            class="flex items-center justify-between border-b border-[#D9D1C7] pb-3"
           >
-            <p class="font-bold text-xl">Categories</p>
+            <p class="font-bold text-xl text-[#3D342B]">Categories</p>
           </div>
 
-          <div class="mt-5">
+          <div
+            class="mt-5 flex flex-wrap lg:flex-col lg:items-start gap-2 lg:gap-0"
+          >
             <button
               onclick="tampilkanBuku(books)"
-              class="font-semibold mb-3 hover:text-sky-900 cursor-pointer"
+              class="font-semibold mb-0 lg:mb-3 text-[#3D342B] hover:text-[#6B5B4D] cursor-pointer transition text-left w-fit"
             >
               Books
             </button>
 
-            <ul class="space-y-1 text-sm">
+            <ul
+              class="flex flex-wrap lg:flex-col gap-2 lg:gap-0 lg:space-y-2 text-sm w-full"
+            >
               <li>
                 <button
                   onclick="filterKategori('Romansa')"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Romansa
                 </button>
@@ -40,7 +47,7 @@
               <li>
                 <button
                   onclick="filterKategori('Drama')"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Drama
                 </button>
@@ -48,7 +55,7 @@
               <li>
                 <button
                   onclick="filterKategori('Fantasi')"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Fantasi
                 </button>
@@ -56,7 +63,7 @@
               <li>
                 <button
                   onclick="filterKategori('Sejarah')"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Sejarah
                 </button>
@@ -64,7 +71,7 @@
               <li>
                 <button
                   onclick="filterKategori('Sastra')"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Sastra
                 </button>
@@ -72,7 +79,7 @@
               <li>
                 <button
                   onclick="filterKategori('Misteri')"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Misteri
                 </button>
@@ -80,37 +87,39 @@
             </ul>
           </div>
 
-          <div class="border-t border-gray-300 mt-5 pt-5">
-            <p class="font-semibold mb-3">Best Seller</p>
-
-            <ul class="space-y-1 text-sm">
+          <div class="border-t border-[#D9D1C7] mt-6 pt-6">
+            <p class="font-semibold mb-3 text-[#3D342B]">Best Seller</p>
+            <ul
+              class="flex flex-wrap lg:flex-col gap-2 lg:gap-0 lg:space-y-2 text-sm"
+            >
               <li>
                 <button
                   onclick="filterTopRated()"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
-                  Rating tertinggi
+                  Rating Tertinggi
                 </button>
               </li>
               <li>
                 <button
                   onclick="filterMostSold()"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
-                  Banyak terjual
+                  Banyak Terjual
                 </button>
               </li>
             </ul>
           </div>
 
-          <div class="border-t border-gray-300 mt-5 pt-5">
-            <p class="font-semibold mb-3">Bargain Books</p>
-
-            <ul class="space-y-1 text-sm">
+          <div class="border-t border-[#D9D1C7] mt-6 pt-6">
+            <p class="font-semibold mb-3 text-[#3D342B]">Bargain Books</p>
+            <ul
+              class="flex flex-wrap lg:flex-col gap-2 lg:gap-0 lg:space-y-2 text-sm"
+            >
               <li>
                 <button
                   onclick="filterHarga(50000, 100000)"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Rp50.000 - Rp100.000
                 </button>
@@ -118,7 +127,7 @@
               <li>
                 <button
                   onclick="filterHarga(100000, Infinity)"
-                  class="cursor-pointer hover:text-sky-900"
+                  class="cursor-pointer text-[#6B5B4D] hover:text-[#3D342B] transition border border-[#D9D1C7] lg:border-0 px-3 py-1 lg:px-0 lg:py-0 rounded-full lg:rounded-none"
                 >
                   Above Rp100.000
                 </button>
@@ -128,18 +137,23 @@
         </aside>
 
         <!-- PRODUCT LIST -->
-        <section class="flex-1">
-          <h1 class="text-3xl font-bold mb-8">Books</h1>
+        <section
+          class="flex-1 bg-white border border-[#E8E0D7] rounded-2xl p-6 md:p-8 shadow-[0px_0px_20px_rgba(0,0,0,0.04)]"
+        >
+          <div class="flex items-center justify-between mb-8">
+            <h1 class="text-3xl font-bold text-[#3D342B]">Books</h1>
+            <p class="text-[#8C7A69] text-sm">Temukan buku favoritmu</p>
+          </div>
 
           <div
             id="productList"
-            class="grid grid-cols-5 gap-x-10 gap-y-16"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-10 lg:gap-x-10 lg:gap-y-16"
           ></div>
         </section>
       </div>
     </main>
 
-    <div id="footer" class="mt-20"></div>
+    <div id="footer" class="mt-5"></div>
 
     <script src="/public/script/catalog.js"></script>
 
@@ -148,7 +162,6 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
-
           const script = document.createElement("script");
           script.src = "/public/script/navbar.js";
           document.body.appendChild(script);

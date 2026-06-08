@@ -1,77 +1,124 @@
+<!-- FOOTER -->
 <footer>
-  <div class="bg-white px-42 py-16 shadow-[0px_5px_25px_15px_rgba(0,0,0,0.1)]">
-    <div class="flex justify-between">
-      <div class="max-w-sm">
+  <div
+    class="bg-[#FAF7F2] px-6 md:px-12 lg:px-42 py-12 md:py-16 shadow-[0px_5px_25px_15px_rgba(0,0,0,0.1)]"
+  >
+    <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+      <!-- Brand -->
+      <div class="w-full md:max-w-sm">
         <div class="flex items-center gap-4 mb-7">
           <img
             src="/public/assets/logo/blackLogo.png"
             alt=""
-            class="w-11 h-11 object-contain"
+            class="w-10 h-10 md:w-11 md:h-11 object-contain"
           />
 
-          <p class="text-3xl tracking-[0.22em] uppercase">
+          <p
+            class="text-2xl md:text-3xl tracking-[0.22em] uppercase text-[#3D342B]"
+          >
             Ruang Fiksi
           </p>
         </div>
 
-        <p class="text-gray-600 leading-8">
-          Ruang Fiksi adalah website e-commerce buku modern yang menyediakan
-          berbagai koleksi buku fiksi dengan tampilan sederhana.
+        <p class="text-[#6B5B4D] leading-8">
+          Ruang Fiksi menghadirkan koleksi buku fiksi pilihan dalam tampilan
+          yang hangat, rapi, dan mudah dijelajahi untuk menemani pengalaman
+          membaca yang lebih nyaman.
         </p>
       </div>
 
-      <div>
-        <p class="font-bold tracking-[0.2em] mb-7">MENU</p>
+      <!-- Menu -->
+      <div class="w-full md:w-40">
+        <p class="font-bold tracking-[0.2em] mb-7 text-[#3D342B]">MENU</p>
 
-        <ul class="space-y-5 text-gray-600">
+        <ul class="space-y-5 text-[#6B5B4D]">
           <li>
-            <a href="#" class="hover:text-sky-950 transition"> Home </a>
+            <a
+              href="/dist/index.html#main"
+              class="hover:text-[#3D342B] transition"
+            >
+              Home
+            </a>
           </li>
 
           <li>
-            <a href="#" class="hover:text-sky-950 transition"> Product </a>
+            <a
+              href="/dist/catalog.html"
+              class="hover:text-[#3D342B] transition"
+            >
+              Catalog
+            </a>
           </li>
 
           <li>
-            <a href="#" class="hover:text-sky-950 transition"> About </a>
+            <a
+              href="/dist/index.html#category"
+              class="hover:text-[#3D342B] transition"
+            >
+              Category
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/dist/index.html#testimonial"
+              class="hover:text-[#3D342B] transition"
+            >
+              Reviews
+            </a>
           </li>
         </ul>
       </div>
 
-      <div>
-        <p class="font-bold tracking-[0.2em] mb-7">FOLLOW US</p>
+      <!-- Follow Us -->
+      <div class="w-full md:w-44">
+        <p class="font-bold tracking-[0.2em] mb-7 text-[#3D342B]">FOLLOW US</p>
 
         <div class="flex gap-4">
-          <div
-            class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer hover:bg-sky-950 hover:text-white transition"
+          <a
+            href="https://www.instagram.com/audreycallys"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 rounded-full border border-[#D9D1C7] text-[#6B5B4D] flex items-center justify-center cursor-pointer hover:bg-[#6B5B4D] hover:text-white transition"
           >
             <iconify-icon icon="mdi:instagram" class="text-2xl"></iconify-icon>
-          </div>
+          </a>
 
-          <div
-            class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer hover:bg-sky-950 hover:text-white transition"
+          <a
+            href="https://www.instagram.com/audien.na"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 rounded-full border border-[#D9D1C7] text-[#6B5B4D] flex items-center justify-center cursor-pointer hover:bg-[#6B5B4D] hover:text-white transition"
           >
             <iconify-icon icon="mdi:facebook" class="text-2xl"></iconify-icon>
-          </div>
+          </a>
 
-          <div
-            class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center cursor-pointer hover:bg-sky-950 hover:text-white transition"
+          <a
+            href="https://www.instagram.com/nnevaely"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 rounded-full border border-[#D9D1C7] text-[#6B5B4D] flex items-center justify-center cursor-pointer hover:bg-[#6B5B4D] hover:text-white transition"
           >
             <iconify-icon icon="mdi:twitter" class="text-2xl"></iconify-icon>
-          </div>
+          </a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="bg-sky-950 px-42 py-6 flex justify-between items-center">
+  <!-- Bottom Bar -->
+  <div
+    class="bg-[#6B5B4D] px-6 md:px-12 lg:px-42 py-5 md:py-6 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0"
+  >
     <div class="flex items-center gap-3">
-      <img src="/public/assets/logo/whiteLogo.png" alt="" class="w-8" />
+      <img src="/public/assets/logo/whiteLogo.png" alt="" class="w-7 md:w-8" />
 
-      <p class="text-white tracking-[0.22em] text-lg uppercase">Ruang Fiksi</p>
+      <p class="text-white tracking-[0.22em] text-base md:text-lg uppercase">
+        Ruang Fiksi
+      </p>
     </div>
 
-    <p class="text-gray-300 text-sm">
+    <p class="text-[#F5E6D3] text-sm text-center sm:text-right">
       © 2026 Ruang Fiksi. All rights reserved.
     </p>
   </div>
