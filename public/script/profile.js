@@ -2,6 +2,26 @@ const sessionUser = sessionStorage.getItem("name");
 const params = new URLSearchParams(window.location.search);
 const page = params.get("page") || "akun";
 
+function showToast(message) {
+  let oldToast = document.getElementById("toast");
+  if (oldToast) {
+    oldToast.remove();
+  }
+
+  let toast = document.createElement("div");
+  toast.id = "toast";
+  toast.innerText = message;
+
+  toast.className =
+    "fixed top-32 right-8 z-[9999] bg-[#6B5B4D] text-white px-5 py-3 rounded-xl shadow-lg text-sm";
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 2500);
+}
+
 async function ambilUser() {
   try {
     let response = await fetch("/public/data/users.json");
@@ -196,9 +216,8 @@ function hapusWishlist(id) {
     JSON.parse(localStorage.getItem(`wishlist_${sessionUser}`)) || [];
 
   wishlist = wishlist.filter((item) => item.id !== id);
-
-  localStorage.setItem(`wishlist_${sessionUser}`, JSON.stringify(wishlist));
-
+  localStorage.setItem(`wishlist_${sessionUser}`, JSON.stringify(wishlist))
+  
   tampilkanWishlist();
 }
 

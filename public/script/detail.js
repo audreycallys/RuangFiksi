@@ -245,7 +245,7 @@ function toggleWishlist(id) {
 
   if (cek) {
     wishlist = wishlist.filter((item) => item.id !== id);
-    alert("Buku dihapus dari wishlist!");
+    // alert("Buku dihapus dari wishlist!");
   } else {
     wishlist.push({
       id: book.id,
@@ -255,7 +255,7 @@ function toggleWishlist(id) {
       image: book.image,
     });
 
-    alert("Buku berhasil masuk ke wishlist!");
+    // alert("Buku berhasil masuk ke wishlist!");
   }
 
   localStorage.setItem(

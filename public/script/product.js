@@ -89,6 +89,7 @@ function tambahKeranjang(id) {
   }
 
   localStorage.setItem(`keranjang_${currentUser}`, JSON.stringify(cart));
+   alert("Buku berhasil masuk ke keranjang!");
 }
 
 function toggleWishlist(id) {
@@ -104,7 +105,7 @@ function toggleWishlist(id) {
 
   if (cek) {
     wishlist = wishlist.filter((item) => item.id !== id);
-    alert("Buku dihapus dari wishlist!");
+    // alert("Buku dihapus dari wishlist!");
   } else {
     wishlist.push({
       id: book.id,
