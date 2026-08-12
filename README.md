@@ -5,10 +5,10 @@ Ruang Fiksi adalah website e-commerce toko buku berbasis web yang memungkinkan p
 ## ✨ Features
 
 ### User
-- Login
+- Login & Register
 - Logout
-- View Profile
-- Wishlist Management
+- Profile
+- Wishlist
 - Shopping Cart
 - Checkout
 
@@ -19,17 +19,8 @@ Ruang Fiksi adalah website e-commerce toko buku berbasis web yang memungkinkan p
 - Filter by Price
 - Top Rated Books
 - Most Sold Books
-- Book Detail Page
+- Book Detail
 - Related Books
-
-### Home Page
-- Hero Section
-- Categories
-- Top Rated
-- Most Sold
-- Testimonials
-
----
 
 ## 🛠️ Built With
 
@@ -41,95 +32,61 @@ Ruang Fiksi adalah website e-commerce toko buku berbasis web yang memungkinkan p
 - SessionStorage
 - Iconify Icons
 
----
-
 ## 📂 Project Structure
 
-```bash
-dist/
+```text
+RuangFiksi/
 │
-├── index.html
-├── catalog.html
-├── detail.html
-├── cart.html
-├── profile.html
+├── dist/
+│   ├── auth/
+│   ├── style/
+│   │   └── output.css
+│   ├── index.html
+│   ├── catalog.html
+│   ├── detail.html
+│   ├── cart.html
+│   └── profile.html
 │
-└── auth/
-    ├── login.html
-    └── register.html
-
-public/
+├── public/
+│   ├── assets/
+│   ├── components/
+│   ├── data/
+│   │   ├── books.json
+│   │   └── users.json
+│   ├── script/
+│   └── style/
+│       └── input.css
 │
-├── assets/
-├── components/
-├── data/
-│   ├── books.json
-│   └── users.json
-│
-├── script/
-│   ├── product.js
-│   ├── catalog.js
-│   ├── detail.js
-│   ├── cart.js
-│   ├── profile.js
-│   ├── navbar.js
-│   └── auth.js
-│
-└── style/
-    └── output.css
+├── package.json
+├── package-lock.json
+└── README.md
 ```
 
----
+## 🚀 Run Project
 
-## 🚀 Main Functionalities
-
-### Authentication
-- User login validation
-- Session management using SessionStorage
-
-### Book Management
-- Display books from JSON
-- Search books by title and author
-- Filter books by category
-- Sort by rating and sales
-
-### Shopping Cart
-- Add book to cart
-- Update quantity
-- Remove item
-- Calculate subtotal and total
-- Checkout selected items
-
-### Wishlist
-- Add book to wishlist
-- Remove book from wishlist
-- Store wishlist per user
-
----
+```bash
+npm install
+npm run dev
+```
 
 ## 💾 Storage
 
-### SessionStorage
-Used for:
+**SessionStorage**
+
+Menyimpan session pengguna yang sedang login.
 
 ```js
 sessionStorage.setItem("name", user.nama);
 ```
 
-Stores active login session.
+**LocalStorage**
 
-### LocalStorage
+Menyimpan data cart dan wishlist berdasarkan username.
 
-Used for:
-
-```js
+```text
 wishlist_username
 keranjang_username
 ```
-
-Stores cart and wishlist data.
-
----
 
 ## 🎨 Design Concept
 
@@ -140,11 +97,9 @@ Warm bookstore inspired interface:
 - Clean card layout
 - Minimalist UI
 - Comfortable reading experience
-
----
+- Responsive design
 
 ## 👩‍💻 Developer
 
-Audrey Callysta Nevaely
-
-SMK Software Engineering Project
+**Audrey Callysta Nevaely**  
+SMK Taruna Bhakti Depok

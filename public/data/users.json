@@ -34,5 +34,32 @@
     "tanggalLahir": "06 Juli 2010",
     "noTelepon": "812-3456-7891",
     "image": "https://i.pinimg.com/736x/7a/87/69/7a876968873eabcc563acf9d7bb2a7db.jpg"
+  },
+  {
+    "email": "anggaabe@gmail.com",
+    "password": "angga",
+    "nama": "Angga",
+    "jenisKelamin": "Laki-laki",
+    "tanggalLahir": "22 Oktober 1983",
+    "noTelepon": "812-3456-7891",
+    "image": "https://i.pinimg.com/736x/33/f0/4f/33f04f56db6fd5f0b2f2944d20bb5603.jpg"
+  },
+  {
+    "email": "nurulode@gmail.com",
+    "password": "nurul",
+    "nama": "Nurul",
+    "jenisKelamin": "Perempuan",
+    "tanggalLahir": "22 Desember 1983",
+    "noTelepon": "812-3456-7891",
+    "image": "https://i.pinimg.com/736x/ad/b7/a5/adb7a5f33fe4d7a7e483d975ce3c9ee7.jpg"
+  },
+  {
+    "email": "aikoaufa@gmail.com",
+    "password": "aiko",
+    "nama": "Aik",
+    "jenisKelamin": "Perempuan",
+    "tanggalLahir": "27 Agustus 2014",
+    "noTelepon": "812-3456-7891",
+    "image": "https://i.pinimg.com/736x/3d/8a/cd/3d8acd93462cfdaf48aed38f8da19a99.jpg"
   }
 ]
